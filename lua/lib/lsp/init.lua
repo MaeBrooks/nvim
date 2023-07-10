@@ -11,6 +11,7 @@ lsp.on_attach(function(_, bufnr)
   vim.api.nvim_set_keymap("n", "<C-n>", "", opts(vim.diagnostic.goto_next))
   vim.api.nvim_set_keymap("n", "<leader>n", "", opts(vim.diagnostic.open_float))
   vim.api.nvim_set_keymap("n", "<leader>b", "", opts(vim.lsp.buf.code_action))
+  vim.api.nvim_set_keymap("n", "<leader>s", "", opts(vim.lsp.buf.format))
 end)
 
 lsp.setup()
