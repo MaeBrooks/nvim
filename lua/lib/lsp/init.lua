@@ -4,7 +4,7 @@ local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(_, bufnr)
   lsp.default_keymaps({buffer = bufnr})
-  local function opts (cb) return { noremap=true, silent=true, callback = cb} end
+  local function opts (cb) return { noremap=false, silent=true, callback = cb} end
 
   vim.api.nvim_set_keymap("n", "<leader>i", "", opts(vim.lsp.buf.hover))
   vim.api.nvim_set_keymap("n", "<C-p>", "", opts(vim.diagnostic.goto_prev))
