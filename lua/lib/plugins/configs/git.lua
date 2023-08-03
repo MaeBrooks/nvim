@@ -1,5 +1,14 @@
 return {
   {
+    "NeogitOrg/neogit",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = true,
+    lazy = false,
+    init = function()
+      require('neogit').setup {}
+    end
+  },
+  {
     "lewis6991/gitsigns.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = true,
@@ -13,5 +22,5 @@ return {
         end
       )
     end
-  },
+  }
 }

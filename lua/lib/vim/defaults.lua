@@ -42,6 +42,11 @@ vim.opt.showmode = false
 vim.opt.mouse = nil
 vim.opt.cursorline = false
 
+require "lib.tools.os".on_windows(function()
+  vim.opt.confirm = false
+end)
+
+
 vim.cmd [[
   set path+=**
   set list listchars+=trail:-

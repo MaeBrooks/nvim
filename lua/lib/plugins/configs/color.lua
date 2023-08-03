@@ -2,6 +2,15 @@ return {
   {
     "rebelot/kanagawa.nvim",
     init = function()
+      require "lib.tools.os".on_windows(function()
+        require('kanagawa').setup({
+          transparent = true,
+          colors = { theme = { all = { ui = {
+            bg_gutter = "none"
+          }}}}
+        })
+      end)
+
       vim.cmd "colorscheme kanagawa-dragon"
     end
   },

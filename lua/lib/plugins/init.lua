@@ -1,12 +1,21 @@
 require "lib/plugins/setup"
+local fold = require "lib.tools.fold"
 local configure = require("lazy").setup
 
-configure({
-  unpack(require("lib.plugins.configs.color")),
-  unpack(require("lib.plugins.configs.project_rooter")),
-  unpack(require("lib.plugins.configs.highlight")),
-  unpack(require("lib.plugins.configs.mini")),
-  unpack(require("lib.plugins.configs.git")),
-  unpack(require("lib.plugins.configs.search")),
-  unpack(require("lib.plugins.configs.lsp")),
-})
+local configs = fold(function(configs, path)
+  for _, config in ipairs(require(path)) do
+    configs[#configs + 1] = config
+  end
+
+  return configs
+end, {
+  "lib.plugins.configs.color",
+  "lib.plugins.configs.project_rooter",
+  "lib.plugins.configs.highlight",
+  "lib.plugins.configs.mini",
+  "lib.plugins.configs.git",
+  "lib.plugins.configs.search",
+  "lib.plugins.configs.lsp",
+}, {})
+
+configure(configs)
