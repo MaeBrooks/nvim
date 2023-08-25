@@ -1,19 +1,15 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
-    init = function()
-      require "lib.tools.os".on_windows(function()
-        require('kanagawa').setup({
-          transparent = true,
-          colors = { theme = { all = { ui = {
-            bg_gutter = "none"
-          }}}}
-        })
-      end)
-
-      vim.cmd "colorscheme kanagawa-dragon"
-    end
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    init = function() end
   },
+  { "ellisonleao/gruvbox.nvim", priority = 1000, init = function()
+    vim.opt.termguicolors = true
+    vim.opt.background = "light"
+    vim.cmd "colorscheme gruvbox"
+  end},
   {
     "norcalli/nvim-colorizer.lua",
     name = "colorizer",
